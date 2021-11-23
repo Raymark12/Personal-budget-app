@@ -11,7 +11,8 @@
   "author": "Ivan Ferrioli",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "sequelize": "^6.12.0-alpha.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
