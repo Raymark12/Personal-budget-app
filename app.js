@@ -1,8 +1,11 @@
 const express = require('express');
+
 const app = express();
 const port = 3000;
 
 const operationRoutes = require('./routes/operation');
+
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.send('Personal Budget');

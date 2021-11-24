@@ -8,8 +8,16 @@ exports.getOperations = async (req, res, next) => {
     });
 };
 
-exports.addOperation = (req, res, next) => {
-    res.send('Add Operation');
+exports.addOperation = async (req, res, next) => {
+    const operation = await Operation.create({
+        concept: req.body.concept,
+        amount: req.body.amount,
+        type_id: req.body.type_id,
+    })
+    res.status(201).json({
+        operation,
+        message: 'Operation created successfuly',
+    });
 };
 
 exports.updateOperation = (req, res, next) => {
