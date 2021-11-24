@@ -38,5 +38,15 @@ exports.updateOperation = (req, res, next) => {
 };
 
 exports.deleteOperation = (req, res, next) => {
-    res.send('Delete Operation');
+    const { id } = req.body;
+
+    Operation.findByPk(id)
+        .then(operation => {
+            operation.destroy();
+            res.status(200).json({
+                message: 'Operation destroyed successfuly',
+                operation,
+            })
+        })
+        .catch(err => console.log(err))
 };
