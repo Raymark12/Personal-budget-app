@@ -21,7 +21,20 @@ exports.addOperation = async (req, res, next) => {
 };
 
 exports.updateOperation = (req, res, next) => {
-    res.send('Update Operation');
+    const { operationId } = req.params;
+    const { concept, amount } = req.body;
+
+    Operation.findByPk(operationId)
+        .then(operation => {
+            operation.concept = concept;
+            operation.amount = amount;
+            operation.save();
+            res.status(201).json({
+                message: 'Operation updated successfuly',
+                operation,
+            })
+        })
+        .catch(err => console.log(err));
 };
 
 exports.deleteOperation = (req, res, next) => {

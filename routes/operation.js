@@ -8,7 +8,7 @@ router.get('/:quantity', operationController.getOperations);
 
 router.post('/', operationController.addOperation);
 
-router.patch('/', operationController.updateOperation);
+router.patch('/:operationId', operationController.updateOperation);
 
 router.delete('/', operationController.deleteOperation);
 
