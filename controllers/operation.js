@@ -29,7 +29,7 @@ exports.updateOperation = (req, res, next) => {
             operation.concept = concept;
             operation.amount = amount;
             operation.save();
-            res.status(201).json({
+            res.status(200).json({
                 message: 'Operation updated successfuly',
                 operation,
             })
