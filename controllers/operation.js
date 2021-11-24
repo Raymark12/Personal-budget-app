@@ -1,5 +1,11 @@
-exports.getOperations = (req, res, next) => {
-    res.send('Operations');
+const Operation = require('../models/operation');
+
+exports.getOperations = async (req, res, next) => {
+    const operations = await Operation.findAll();
+    res.status(200).json({
+        operations,
+        message: 'Fetched operations successfuly',
+    });
 };
 
 exports.addOperation = (req, res, next) => {
