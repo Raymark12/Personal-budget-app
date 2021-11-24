@@ -1,7 +1,7 @@
 const Operation = require('../models/operation');
 
 exports.getOperations = async (req, res, next) => {
-    const operations = await Operation.findAll();
+    const operations = await Operation.findAll({ limit: parseInt(req.params.quantity) });
     res.status(200).json({
         operations,
         message: 'Fetched operations successfuly',
