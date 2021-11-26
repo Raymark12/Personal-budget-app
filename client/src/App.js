@@ -1,7 +1,9 @@
+import Layout from "./components/Layout"
+
 function App() {
   return (
     <div className="App">
-      Personal Budget
+      <Layout />
     </div>
   );
 }
