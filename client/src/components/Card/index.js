@@ -1,6 +1,6 @@
 import style from "./card.module.scss";
 
-export const Card = ({ children, title }) => {
+const Card = ({ children, title }) => {
   return (
     <div className={style.card}>
       {title && <div className={style.title}>{title}</div>}
@@ -8,3 +8,5 @@ export const Card = ({ children, title }) => {
     </div>
   );
 };
+
+export default Card;

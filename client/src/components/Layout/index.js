@@ -1,4 +1,4 @@
-import { Toolbar } from "../Navigation/Toolbar";
+import Toolbar from "../Navigation/Toolbar";
 import style from "./layout.module.scss";
 
 const Layout = ({ children }) => {

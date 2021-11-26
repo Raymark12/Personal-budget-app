@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "../../Card";
+import Card from "../../Card";
 import style from "./operationForm.module.scss";
 
 const OperationForm = ({ onSaveOperation }) => {
