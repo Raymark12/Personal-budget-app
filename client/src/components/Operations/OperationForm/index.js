@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Card } from "../../Card";
 import style from "./operationForm.module.scss";
 
 const OperationForm = ({ onSaveOperation }) => {
@@ -42,9 +43,8 @@ const OperationForm = ({ onSaveOperation }) => {
   };
 
   return (
-    <div className={style.operationForm}>
-      <div className={style.title}>Add Operation</div>
-      <form onSubmit={submitHandler}>
+    <Card title="Add Operation">
+      <form onSubmit={submitHandler} className={style.operationForm}>
         <label>Concept</label>
         <input
           type="text"
@@ -80,7 +80,7 @@ const OperationForm = ({ onSaveOperation }) => {
           </button>
         </div>
       </form>
-    </div>
+    </Card>
   );
 };
 
