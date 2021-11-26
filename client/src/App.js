@@ -1,9 +1,12 @@
-import Layout from "./components/Layout"
+import Layout from "./components/Layout";
+import Operation from "./components/Operations";
 
 function App() {
   return (
     <div className="App">
-      <Layout />
+      <Layout>
+        <Operation />
+      </Layout>
     </div>
   );
 }
