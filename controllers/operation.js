@@ -12,10 +12,13 @@ exports.getOperations = async (req, res, next) => {
 };
 
 exports.addOperation = async (req, res, next) => {
+  const { concept, amount, date, type_id } = req.body;
+
   Operation.create({
-    concept: req.body.concept,
-    amount: req.body.amount,
-    type_id: req.body.type_id,
+    concept,
+    amount,
+    date,
+    type_id,
   })
     .then((operation) => {
       res.status(201).json({
@@ -28,7 +31,7 @@ exports.addOperation = async (req, res, next) => {
 
 exports.updateOperation = (req, res, next) => {
   const { operationId } = req.params;
-  const { concept, amount } = req.body;
+  const { concept, amount, date } = req.body;
 
   Operation.findByPk(operationId)
     .then((operation) => {
@@ -39,6 +42,7 @@ exports.updateOperation = (req, res, next) => {
       }
       operation.concept = concept;
       operation.amount = amount;
+      operation.date = date;
       operation
         .save()
         .then(() => {

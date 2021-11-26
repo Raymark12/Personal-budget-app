@@ -17,6 +17,10 @@ const Operation = sequelize.define('operation', {
     type: Sequelize.DOUBLE,
     allowNull: false,
   },
+  date: {
+    type: Sequelize.DATE,
+    allowNull: false,
+  },
   type_id: {
     type: Sequelize.INTEGER,
     allowNull: false,
