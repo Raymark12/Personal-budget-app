@@ -1,11 +1,11 @@
 import Layout from "./components/Layout";
-import Operation from "./components/Operations";
+import Operations from "./components/Operations";
 
 function App() {
   return (
     <div className="App">
       <Layout>
-        <Operation />
+        <Operations />
       </Layout>
     </div>
   );
