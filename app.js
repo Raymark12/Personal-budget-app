@@ -13,6 +13,20 @@ app.get('/', (req, res) => {
 
 app.use('/operation', operationRoutes);
 
+app.use((req, res, next) => {
+  const error = new Error('Not found');
+  error.status = 404;
+  next(error);
+});
+
+app.use((error, req, res, next) => {
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.status(status).json({ message: message, data: data });
+});
+
 app.listen(port, () => {
   console.log(`Personal Budget app listening at http://localhost:${port}`);
 });
