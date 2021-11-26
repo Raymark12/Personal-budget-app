@@ -12,5 +12,4 @@ router.patch('/:operationId', operationController.updateOperation);
 
 router.delete('/', operationController.deleteOperation);
 
-
 module.exports = router;
