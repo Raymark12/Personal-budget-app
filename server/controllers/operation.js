@@ -1,7 +1,21 @@
 const Operation = require("../models/operation");
 
 exports.getOperations = async (req, res, next) => {
-  Operation.findAll({ limit: parseInt(req.params.quantity) })
+  Operation.findAll({
+    limit: parseInt(req.params.quantity),
+    order: [["date", "DESC"]],
+  })
+    .then((operations) => {
+      res.status(200).json({
+        operations,
+        message: "Fetched operations successfuly",
+      });
+    })
+    .catch((err) => next(err));
+};
+
+exports.getAllOperations = async (req, res, next) => {
+  Operation.findAll({ order: [["date", "DESC"]] })
     .then((operations) => {
       res.status(200).json({
         operations,

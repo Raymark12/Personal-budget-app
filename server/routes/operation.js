@@ -4,6 +4,8 @@ const operationController = require('../controllers/operation');
 
 const router = express.Router();
 
+router.get('/', operationController.getAllOperations);
+
 router.get('/:quantity', operationController.getOperations);
 
 router.post('/', operationController.addOperation);
