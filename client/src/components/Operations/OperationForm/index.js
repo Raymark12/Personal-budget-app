@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../../Card";
 import style from "./operationForm.module.scss";
 
@@ -7,6 +7,21 @@ const OperationForm = ({ onSaveOperation }) => {
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   const [enteredType, setEnteredType] = useState(0);
+  const [isFormReady, setIsFormReady] = useState(false);
+
+  useEffect(() => {
+    if (enteredConcept && enteredAmount && enteredDate && enteredType) {
+      setIsFormReady(true);
+    } else {
+      setIsFormReady(false);
+    }
+  },
+  [
+    enteredConcept,
+    enteredAmount,
+    enteredDate,
+    enteredType,
+  ]);
 
   const conceptChangeHandler = (event) => {
     setEnteredConcept(event.target.value);
@@ -19,7 +34,7 @@ const OperationForm = ({ onSaveOperation }) => {
   };
 
   const typeChangeHandler = (event) => {
-    setEnteredType(event.target.value);
+    setEnteredType(+event.target.value);
   };
 
   const clearHandler = () => {
@@ -27,6 +42,7 @@ const OperationForm = ({ onSaveOperation }) => {
     setEnteredAmount("");
     setEnteredDate("");
     setEnteredType(0);
+    setIsFormReady(false);
   };
 
   const submitHandler = (event) => {
@@ -75,7 +91,7 @@ const OperationForm = ({ onSaveOperation }) => {
           <button type="button" className={style.clear} onClick={clearHandler}>
             Clear
           </button>
-          <button type="submit" className={style.save}>
+          <button type="submit" className={style.save} disabled={!isFormReady}>
             Save
           </button>
         </div>
