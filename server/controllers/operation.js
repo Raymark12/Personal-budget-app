@@ -15,6 +15,24 @@ exports.getOperations = async (req, res, next) => {
     .catch((err) => next(err));
 };
 
+exports.getOperation = async (req, res, next) => {
+  const { operationId } = req.params;
+
+  Operation.findByPk(operationId)
+    .then((operation) => {
+      if (!operation) {
+        const error = new Error('Operation not found');
+        error.statusCode = 404;
+        next(error);
+      }
+      res.status(200).json({
+        operation,
+        message: "Fetched operation successfuly",
+      });
+    })
+    .catch((err) => next(err));
+};
+
 exports.getAllOperations = async (req, res, next) => {
   Operation.findAll({ order: [["date", "DESC"]] })
     .then((operations) => {
