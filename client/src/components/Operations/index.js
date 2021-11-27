@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import OperationForm from "./OperationForm";
-import style from "./operations.module.scss";
 import OperationsList from "./OperationsList";
+import OperationsFilters from "./OperationsFilters";
+import style from "./operations.module.scss";
 
 const Operations = () => {
   const [operations, setOperations] = useState([]);
@@ -34,17 +35,17 @@ const Operations = () => {
 
   const clearFilter = () => {
     setSelectedType(null);
-  }
+  };
 
   return (
     <div className={style.operations}>
       <OperationForm onSaveOperation={addOperationHandler} />
-      <OperationsList
-        operations={filteredOperations}
+      <OperationsFilters
         onShowExpenses={showExpenses}
         onShowIncomes={showIncomes}
         onClearFilter={clearFilter}
       />
+      <OperationsList operations={filteredOperations} />
     </div>
   );
 };
