@@ -55,7 +55,10 @@ const Operations = () => {
 
   return (
     <>
-      <OperationForm onSaveOperation={addOperationHandler} />
+      <OperationForm
+        onSaveOperation={addOperationHandler}
+        title="Add Operation"
+      />
       <SectionTitle>All operations</SectionTitle>
       <OperationsFilters
         onShowExpenses={showExpenses}
