@@ -82,6 +82,7 @@ const Operations = () => {
       <OperationsList
         operations={filteredOperations}
         onDeleteOperation={deleteOperationHandler}
+        showActions
       />
     </>
   );
