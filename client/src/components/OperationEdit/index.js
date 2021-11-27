@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOperation } from "../../services/operation";
+import { getOperation, editOperation } from "../../services/operation";
 import OperationForm from "../Operations/OperationForm";
 
 const OperationEdit = () => {
@@ -15,7 +15,15 @@ const OperationEdit = () => {
       .catch((error) => console.log(error));
   }, [id]);
 
-  return <OperationForm operation={operation} onSaveOperation={()=>{}} title="Edit Operation" />;
+  const saveOperation = (editedOperation) => {
+    editOperation(editedOperation)
+      .then(({ data }) => {
+        setOperation(data.operation);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  return <OperationForm operation={operation} onSaveOperation={saveOperation} title="Edit Operation" />;
 };
 
 export default OperationEdit;

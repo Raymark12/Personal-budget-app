@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
 import Card from "../../Card";
 import style from "./operationForm.module.scss";
 
@@ -36,7 +37,8 @@ const OperationForm = ({ onSaveOperation, operation = null, title }) => {
     setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
+    const date = moment(event.target.value).format("YYYY-mm-dd");
+    setEnteredDate(date);
   };
 
   const typeChangeHandler = (event) => {
@@ -62,9 +64,10 @@ const OperationForm = ({ onSaveOperation, operation = null, title }) => {
     };
     if (isEditing) {
       savedOperation.id = operation.id;
+    } else {
+      clearHandler();
     }
     onSaveOperation(savedOperation);
-    clearHandler();
   };
 
   return (
@@ -91,7 +94,11 @@ const OperationForm = ({ onSaveOperation, operation = null, title }) => {
           max="2022-12-31"
         />
         <label>Type</label>
-        <select value={enteredType} onChange={typeChangeHandler} disabled={isEditing}>
+        <select
+          value={enteredType}
+          onChange={typeChangeHandler}
+          disabled={isEditing}
+        >
           <option value="0">Select an option</option>
           <option value="1">Income</option>
           <option value="2">Expense</option>
