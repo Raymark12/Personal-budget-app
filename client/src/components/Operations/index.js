@@ -3,11 +3,23 @@ import OperationForm from "./OperationForm";
 import OperationsList from "./OperationsList";
 import OperationsFilters from "./OperationsFilters";
 import SectionTitle from "../SectionTitle";
+import { getAllOperations } from "../../services/operation";
 
 const Operations = () => {
   const [operations, setOperations] = useState([]);
   const [selectedType, setSelectedType] = useState();
   const [filteredOperations, setFilteredOperations] = useState([]);
+
+  useEffect(() => {
+    getAllOperations()
+      .then(({ data }) => {
+        const allOperations = data.operations.map((operation) => {
+          return { ...operation, date: new Date(operation.date) };
+        });
+        setOperations(allOperations);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   useEffect(() => {
     let filtered;
