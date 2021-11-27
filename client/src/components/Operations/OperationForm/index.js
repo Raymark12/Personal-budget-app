@@ -37,7 +37,7 @@ const OperationForm = ({ onSaveOperation, operation = null, title }) => {
     setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
-    const date = moment(event.target.value).format("YYYY-mm-dd");
+    const date = moment(event.target.value).format("YYYY-MM-DD");
     setEnteredDate(date);
   };
 
