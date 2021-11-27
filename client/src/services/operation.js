@@ -15,3 +15,11 @@ export const getLatestOperations = (quantity) => {
     console.log(error);
   }
 }
+
+export const getOperationsBalance = () => {
+  try {
+    return axios.get(`http://localhost:4000/operation/balance`);
+  } catch (error) {
+    console.log(error);
+  }
+}
