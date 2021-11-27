@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const getAllOperations = () => {
   try {
@@ -6,7 +6,7 @@ export const getAllOperations = () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const getLatestOperations = (quantity) => {
   try {
@@ -14,7 +14,7 @@ export const getLatestOperations = (quantity) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
 export const getOperationsBalance = () => {
   try {
@@ -22,4 +22,12 @@ export const getOperationsBalance = () => {
   } catch (error) {
     console.log(error);
   }
-}
+};
+
+export const addNewOperation = (operation) => {
+  try {
+    return axios.post(`http://localhost:4000/operation/`, { ...operation });
+  } catch (error) {
+    console.log(error);
+  }
+};

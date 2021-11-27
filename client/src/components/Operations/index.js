@@ -3,7 +3,7 @@ import OperationForm from "./OperationForm";
 import OperationsList from "./OperationsList";
 import OperationsFilters from "./OperationsFilters";
 import SectionTitle from "../SectionTitle";
-import { getAllOperations } from "../../services/operation";
+import { addNewOperation, getAllOperations } from "../../services/operation";
 
 const Operations = () => {
   const [operations, setOperations] = useState([]);
@@ -34,7 +34,11 @@ const Operations = () => {
   }, [operations, selectedType]);
 
   const addOperationHandler = (operation) => {
-    setOperations((prevOperations) => [operation, ...prevOperations]);
+    addNewOperation(operation)
+      .then(() => {
+        setOperations((prevOperations) => [operation, ...prevOperations]);
+      })
+      .catch((error) => console.log(error));
   };
 
   const showExpenses = () => {
