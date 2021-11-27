@@ -8,7 +8,7 @@ app.use(cors());
 
 const operationRoutes = require('./routes/operation');
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Personal Budget');
