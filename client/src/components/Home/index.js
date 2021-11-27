@@ -1,5 +1,6 @@
 import { useState } from "react";
 import OperationsList from "../Operations/OperationsList";
+import SectionTitle from "../SectionTitle";
 import OperationsBalance from "./OperationsBalance";
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     <>
       <OperationsBalance balance={balance} />
+      <SectionTitle>Last 10 operations</SectionTitle>
       <OperationsList operations={operations} />
     </>
   );

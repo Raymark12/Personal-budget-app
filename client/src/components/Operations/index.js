@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import OperationForm from "./OperationForm";
 import OperationsList from "./OperationsList";
 import OperationsFilters from "./OperationsFilters";
+import SectionTitle from "../SectionTitle";
 
 const Operations = () => {
   const [operations, setOperations] = useState([]);
@@ -39,6 +40,7 @@ const Operations = () => {
   return (
     <>
       <OperationForm onSaveOperation={addOperationHandler} />
+      <SectionTitle>All operations</SectionTitle>
       <OperationsFilters
         onShowExpenses={showExpenses}
         onShowIncomes={showIncomes}
