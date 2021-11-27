@@ -16,7 +16,7 @@ const OperationsList = ({ operations }) => {
   return (
     <>
       {operations.map((operation) => (
-        <Card>
+        <Card key={operation.id}>
           <div className={style.operation}>
             <div className={style.header}>
               <div>{operation.concept}</div>
