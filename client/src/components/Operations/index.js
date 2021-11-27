@@ -13,10 +13,7 @@ const Operations = () => {
   useEffect(() => {
     getAllOperations()
       .then(({ data }) => {
-        const allOperations = data.operations.map((operation) => {
-          return { ...operation, date: new Date(operation.date) };
-        });
-        setOperations(allOperations);
+        setOperations(data.operations);
       })
       .catch((error) => console.log(error));
   }, []);

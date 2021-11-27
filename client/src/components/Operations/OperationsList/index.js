@@ -1,4 +1,4 @@
-import { getFormatedDate } from "../../../utils/date";
+import moment from "moment";
 import Card from "../../Card";
 import style from "./operationsList.module.scss";
 
@@ -23,7 +23,7 @@ const OperationsList = ({ operations }) => {
               <div>${operation.amount}</div>
             </div>
             <div>
-              <div>{getFormatedDate(operation.date)}</div>
+              <div>{moment(operation.date).format("DD/MM/YYYY")}</div>
               <div>{getTypeName(operation.type_id)}</div>
             </div>
           </div>
