@@ -49,3 +49,11 @@ export const editOperation = ({ id, ...operation }) => {
     console.log(error);
   }
 };
+
+export const deleteOperation = (id) => {
+  try {
+    return axios.delete(`http://localhost:4000/operation/${id}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
