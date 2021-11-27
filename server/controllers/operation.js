@@ -90,9 +90,8 @@ exports.updateOperation = (req, res, next) => {
 };
 
 exports.deleteOperation = (req, res, next) => {
-  const { id } = req.body;
-
-  Operation.findByPk(id)
+  const { operationId } = req.params;
+  Operation.findByPk(operationId)
     .then((operation) => {
       operation.destroy();
       res.status(200).json({

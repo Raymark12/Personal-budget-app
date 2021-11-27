@@ -16,6 +16,6 @@ router.post('/', operationController.addOperation);
 
 router.patch('/:operationId', operationController.updateOperation);
 
-router.delete('/', operationController.deleteOperation);
+router.delete('/:operationId', operationController.deleteOperation);
 
 module.exports = router;
