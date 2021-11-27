@@ -8,7 +8,9 @@ router.get('/', operationController.getAllOperations);
 
 router.get('/balance', operationController.getOperationsBalance);
 
-router.get('/:quantity', operationController.getOperations);
+router.get('/:operationId', operationController.getOperation);
+
+router.get('/limit/:quantity', operationController.getOperations);
 
 router.post('/', operationController.addOperation);
 
