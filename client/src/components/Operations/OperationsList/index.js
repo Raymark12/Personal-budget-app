@@ -1,4 +1,5 @@
 import moment from "moment";
+import { Link } from "react-router-dom";
 import Card from "../../Card";
 import style from "./operationsList.module.scss";
 
@@ -25,6 +26,14 @@ const OperationsList = ({ operations }) => {
             <div>
               <div>{moment(operation.date).format("DD/MM/YYYY")}</div>
               <div>{getTypeName(operation.type_id)}</div>
+            </div>
+            <div className={style.actions}>
+              <div>
+                <Link to={`/operation/edit/${operation.id}`}>
+                  <img src="/edit-24.png" />
+                </Link>
+                <img src="/delete-trash-24.png" />
+              </div>
             </div>
           </div>
         </Card>

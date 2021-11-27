@@ -1,13 +1,23 @@
 .operation {
   display: flex;
   flex-direction: column;
-  div {
+  > div {
     display: flex;
     justify-content: space-between;
     &.header {
       font-weight: bold;
-      margin-bottom: 5px;
       text-transform: capitalize;
+      margin-bottom: 5px;
+    }
+    &.actions {
+      border-top: 1px solid rgb(170, 170, 170);
+      justify-content: end;
+      margin-top: 5px;
+      padding-top: 5px;
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }
