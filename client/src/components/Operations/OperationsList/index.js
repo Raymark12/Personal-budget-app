@@ -3,13 +3,13 @@ import Card from "../../Card";
 import style from "./operationsList.module.scss";
 
 const types = [
-  { code: 1, name: "income" },
-  { code: 2, name: "expense" },
+  { id: 1, name: "income" },
+  { id: 2, name: "expense" },
 ];
 
 const OperationsList = ({ operations }) => {
   const getTypeName = (operationType) => {
-    const type = types.find((type) => type.code == operationType);
+    const type = types.find((type) => type.id == operationType);
     return type.name;
   };
 
@@ -24,7 +24,7 @@ const OperationsList = ({ operations }) => {
             </div>
             <div>
               <div>{getFormatedDate(operation.date)}</div>
-              <div>{getTypeName(operation.type)}</div>
+              <div>{getTypeName(operation.type_id)}</div>
             </div>
           </div>
         </Card>

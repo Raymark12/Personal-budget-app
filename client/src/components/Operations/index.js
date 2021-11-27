@@ -13,7 +13,7 @@ const Operations = () => {
     let filtered;
     if (selectedType) {
       filtered = operations.filter(
-        (operation) => operation.type == selectedType
+        (operation) => operation.type_id == selectedType
       );
     } else {
       filtered = [...operations];

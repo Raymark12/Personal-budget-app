@@ -52,7 +52,7 @@ const OperationForm = ({ onSaveOperation }) => {
       concept: enteredConcept,
       amount: +enteredAmount,
       date: new Date(enteredDate),
-      type: enteredType,
+      type_id: enteredType,
     };
     onSaveOperation(operation);
     clearHandler();
