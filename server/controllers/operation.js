@@ -1,3 +1,4 @@
+const sequelize = require("../database");
 const Operation = require("../models/operation");
 
 exports.getOperations = async (req, res, next) => {
@@ -82,4 +83,34 @@ exports.deleteOperation = (req, res, next) => {
       });
     })
     .catch((err) => next(err));
+};
+
+exports.getOperationsBalance = async (req, res, next) => {
+  try {
+    const incomes = await Operation.findAll({
+      where: {
+        type_id: 1
+      },
+      attributes: [
+        [sequelize.fn("sum", sequelize.col("amount")), "total"],
+      ],
+      raw: true,
+    });
+    const expenses = await Operation.findAll({
+      where: {
+        type_id: 2
+      },
+      attributes: [
+        [sequelize.fn("sum", sequelize.col("amount")), "total"],
+      ],
+      raw: true,
+    });
+    const balance = incomes[0].total - expenses[0].total;
+      res.status(200).json({
+        total: balance,
+        message: "Fetched balance successfuly",
+    });
+  } catch (err) {
+    next(err);
+  };
 };

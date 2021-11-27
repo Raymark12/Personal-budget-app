@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.get('/', operationController.getAllOperations);
 
+router.get('/balance', operationController.getOperationsBalance);
+
 router.get('/:quantity', operationController.getOperations);
 
 router.post('/', operationController.addOperation);
