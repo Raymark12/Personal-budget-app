@@ -32,8 +32,8 @@ const Operations = () => {
 
   const addOperationHandler = (operation) => {
     addNewOperation(operation)
-      .then(() => {
-        setOperations((prevOperations) => [operation, ...prevOperations]);
+      .then(({ data }) => {
+        setOperations((prevOperations) => [data.operation, ...prevOperations]);
       })
       .catch((error) => console.log(error));
   };
