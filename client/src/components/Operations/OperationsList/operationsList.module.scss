@@ -1,0 +1,13 @@
+.operation {
+  display: flex;
+  flex-direction: column;
+  div {
+    display: flex;
+    justify-content: space-between;
+    &.header {
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-transform: capitalize;
+    }
+  }
+}
