@@ -8,12 +8,12 @@ const types = [
   { id: 2, name: "expense" },
 ];
 
-const OperationsList = ({ operations }) => {
+const OperationsList = ({ operations, onDeleteOperation }) => {
   const getTypeName = (operationType) => {
     const type = types.find((type) => type.id == operationType);
     return type.name;
   };
-
+  
   return (
     <>
       {operations.map((operation) => (
@@ -32,7 +32,10 @@ const OperationsList = ({ operations }) => {
                 <Link to={`/operation/edit/${operation.id}`}>
                   <img src="/edit-24.png" />
                 </Link>
-                <img src="/delete-trash-24.png" />
+                <img
+                  src="/delete-trash-24.png"
+                  onClick={() => onDeleteOperation(operation.id)}
+                />
               </div>
             </div>
           </div>
